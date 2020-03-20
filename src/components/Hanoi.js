@@ -16,7 +16,8 @@ function Hanoi(props) {
   // The visualization
   const pegs = [];
   for (let i = 0; i < props.discs.length; i++) {
-    let peg = <Peg key={i} clicked={() => props.pegClicked(i)} discs={props.discs[i]}></Peg>
+    console.log(props)
+    let peg = <Peg key={i} selected={props.selectedPeg === i} clicked={() => props.pegClicked(i)} discs={props.discs[i]}></Peg>
     pegs.push(peg);
   }
 

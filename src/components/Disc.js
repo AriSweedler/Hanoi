@@ -13,7 +13,6 @@ const StyledDisc = styled.div`
   width: ${props => 40 + (props.num * 6)}%;
 `
 
-
 function Disc(props) {
   console.groupCollapsed("Disc");
 

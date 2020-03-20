@@ -74,10 +74,12 @@ const App = () => {
 
   return (
     <StyledApp>
-      <Controls increment={() => resize(getSize(discs)+1)} decrement={() => resize(getSize(discs)-1)}/>
-      <p>Selected peg: {selectedPeg}</p>
+      <Controls
+          increment={() => resize(getSize(discs)+1)}
+          decrement={() => resize(getSize(discs)-1)}
+          reset={() => resize(getSize(discs))}
+      />
       <Hanoi discs={discs} move={pegMove} pegClicked={pegClicked} selectedPeg={selectedPeg}/>
-      {/* <button onClick={() => setDiscs([[0], [1], [2]])}>Make it 012 </button> */}
     </StyledApp>
   );
 }
