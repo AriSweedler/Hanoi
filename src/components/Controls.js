@@ -4,11 +4,14 @@ import styled from 'styled-components'
 
 const StyledControls = styled.div`
   display: flex;
-  width: 100;
+  height: 10vh;
+  border: solid 2px black;
+
 
   * {
+    background: #ccc;
     flex-grow: 1;
-    border: solid 2px orange;
+    border: solid 5px orange;
   }
 
 `
