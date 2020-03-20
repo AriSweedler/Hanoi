@@ -9,7 +9,6 @@ const StyledControls = styled.div`
   * {
     flex-grow: 1;
     border: solid 2px orange;
-    height: 12vh;
   }
 
 `

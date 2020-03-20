@@ -1,11 +1,33 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Peg from './Peg';
+
 
 const StyledHanoi = styled.div`
   border: solid 4px blue;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`
+
+const StyledDebugPrint = styled.div`
+  border: solid 5px black;
+`
+
+const StyledControlPanel = styled.div`
+  border: solid 5px green;
+`
+
+const StyledBoard = styled.div`
+  border: dashed 5px red;
+  display: flex;
+  flex-grow: 1;
 `
 
 function Hanoi(props) {
+  console.group("Hanoi");
+
+  // TODO we eventually won't need this controlp anel
   const buttons = []
   for (let f = 0; f < props.discs.length; f++) {
     const btn_row = [];
@@ -16,20 +38,27 @@ function Hanoi(props) {
   }
 
 
+  // TODO we eventually won't need this debugging print
   let printme = [];
   for (let i = 0; i < props.discs.length; i++) {
-    console.log(`setting printme`);
     let peg = <p key={i}>Peg {i} has: {props.discs[i].join(',')}</p>
     printme.push(peg);
   }
 
-  console.log(`DISCS in Hanoi: %o`, props.discs)
+  // The visualization
+  const pegs = [];
+  for (let i = 0; i < props.discs.length; i++) {
+    let peg = <Peg key={i}></Peg>
+    pegs.push(peg);
+  }
 
+  console.groupEnd("Hanoi");
   return (
     <StyledHanoi>
       <p>This is the Hanoi app. The tower has {props.size} discs</p>
-      <div>{printme}</div>
-      <div>{buttons}</div>
+      <StyledDebugPrint>{printme}</StyledDebugPrint>
+      <StyledBoard>{pegs}</StyledBoard>
+      <StyledControlPanel>{buttons}</StyledControlPanel>
     </StyledHanoi>
   );
 }
