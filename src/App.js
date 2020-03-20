@@ -19,8 +19,10 @@ const App = () => {
     console.group("pegMove");
     console.log(`pegMove called from ${from} to ${to}`);
 
-    let mover = discs[from].pop();
-    let peg_to = discs[to]
+    const newDiscs = discs.slice();
+
+    let mover = newDiscs[from].pop();
+    let peg_to = newDiscs[to]
     let movee = peg_to[peg_to.length-1];
     if (movee === undefined) movee = "nope";
     // console.log(`We're moving a ${mover}-disc onto a ${movee}-disc `);
@@ -36,9 +38,9 @@ const App = () => {
     }
 
     // Log and make it happen
-    discs[to].push(mover);
+    newDiscs[to].push(mover);
     console.info("Discs: %o", discs);
-    setDiscs(discs);
+    setDiscs(newDiscs);
     console.groupEnd("Hanoi");
   }
 
